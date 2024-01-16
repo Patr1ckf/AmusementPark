@@ -48,6 +48,10 @@ public class AppController implements WebMvcConfigurer {
     public String viewHomePage(Model model){
         List<Pracownicy> pracownicyList = dao.list();
 
+        for (Pracownicy pracownik : pracownicyList) {
+            System.out.println(pracownik.toString());
+        }
+
         model.addAttribute("pracownicyList", pracownicyList);
         return "index";
     }
