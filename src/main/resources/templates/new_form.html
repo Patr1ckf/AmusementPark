@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nowy pracownik</title>
+</head>
+<body>
+
+<div align="center">
+    <h1>Wprowadź nowego pracownika</h1>
+
+    <br/>
+
+    <form action="#" th:action="@{/save}" th:object="${pracownik}" method="post">
+    <table border = "1" cellpadding = "10">
+        <tr>
+            <td>Imię</td>
+            <td><input type="text" th:field="*{imie}"></td>
+        </tr>
+
+        <tr>
+            <td>Nazwisko</td>
+            <td><input type="text" th:field="*{nazwisko}"></td>
+        </tr>
+
+        <tr>
+            <td>Płeć</td>
+            <td><input type="text" th:field="*{plec}"></td>
+        </tr>
+
+        <tr>
+            <td>Data urodzenia</td>
+            <td><input type="text" th:field="*{data_urodzenia}"></td>
+        </tr>
+
+        <tr>
+            <td>Pesel</td>
+            <td><input type="text" th:field="*{PESEL}"></td>
+        </tr>
+
+        <tr>
+            <td>email</td>
+            <td><input type="text" th:field="*{email}"></td>
+        </tr>
+
+        <tr>
+            <td>Numer konta bankowego</td>
+            <td><input type="text" th:field="*{numer_konta}"></td>
+        </tr>
+
+        <tr>
+            <td>ID parku</td>
+            <td><input type="text" th:field="*{id_parku}"></td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><button type="submit">Save</button></td>
+        </tr>
+
+    </table>
+
+    </form>
+</div>
+
+
+
+</body>
+</html>

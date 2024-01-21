@@ -3,7 +3,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import javax.servlet.http.HttpServletRequest;
@@ -20,9 +22,10 @@ public class AppController implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/main").setViewName("main");
         registry.addViewController("/login").setViewName("login");
-
         registry.addViewController("/main_admin").setViewName("admin/main_admin");
         registry.addViewController("/main_user").setViewName("user/main_user");
+        registry.addViewController("/new").setViewName("new_form");
+        registry.addViewController("/save").setViewName("admin/main_admin");
     }
 
 
@@ -44,28 +47,55 @@ public class AppController implements WebMvcConfigurer {
         }
     }
 
-    @RequestMapping("/")
-    public String viewHomePage(Model model){
-        List<Pracownicy> pracownicyList = dao.list();
+    @Controller
+    public class UserController {
 
-        for (Pracownicy pracownik : pracownicyList) {
-            System.out.println(pracownik.toString());
+        @RequestMapping("/main_admin")
+        public String showUserData(Model model, HttpServletRequest request) {
+            List<Pracownicy> pracownicyList = dao.list();
+            model.addAttribute("pracownicyList", pracownicyList);
+
+            if (request.isUserInRole("ADMIN")) {
+                return "admin/main_admin";
+            } else {
+                return "redirect:/main_user";
+            }
         }
-
-        model.addAttribute("pracownicyList", pracownicyList);
-        return "index";
     }
 
-    @RequestMapping(value={"/main_admin"})
+    @Controller
+    public class NowyPracownik {
+
+        @RequestMapping(value = "/new")
+        public String showNewForm(Model model) {
+            Pracownicy pracownik = new Pracownicy();
+            model.addAttribute("pracownik", pracownik);
+            return "new_form";
+        }
+    }
+
+    @Controller
+    public class SaveController {
+        @RequestMapping(value="/save", method = RequestMethod.POST)
+        public String save(@ModelAttribute("pracownicy") Pracownicy pracownicy){
+            dao.save(pracownicy);
+            return "redirect:/main_admin";
+        }
+    }
+
+
+    @RequestMapping(value = {"/main_admin"})
     public String showAdminPage(Model model) {
         return "admin/main_admin";
     }
 
-    @RequestMapping(value={"/main_user"})
+    @RequestMapping(value = {"/main_user"})
     public String showUserPage(Model model) {
         return "user/main_user";
     }
 }
+
+
 
 
 

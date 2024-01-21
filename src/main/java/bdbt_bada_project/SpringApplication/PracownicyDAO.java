@@ -3,7 +3,11 @@ package bdbt_bada_project.SpringApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
+
+import java.beans.BeanProperty;
 import java.util.List;
 
 
@@ -25,7 +29,13 @@ public class PracownicyDAO {
         return pracownicyList;
     }
     // Insert – wstawianie nowego wiersza do bazy
-    public void save(Pracownicy sale) {
+    public void save(Pracownicy pracownicy) {
+        SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
+        insertActor.withTableName("pracownicy").usingColumns("id_pracownika", "imie", "nazwisko","plec",
+                "data_urodzenia", "PESEL", "email","numer_konta", "id_parku");
+
+        BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(pracownicy);
+        insertActor.execute(param);
     }
 
     // Read – odczytywanie danych z bazy

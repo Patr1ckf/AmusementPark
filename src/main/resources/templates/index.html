@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+       xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>Welcome Page</title>
@@ -17,7 +18,6 @@
 <!--        no-repeat center center fixed;-->
 <!--    }-->
 <!--</style>-->
-
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
@@ -68,37 +68,6 @@
     </div>
 </div>
 
-<--
-<div align="center">
-    <h1>Pracownicy</h1>
-
-    <!-- Table -->
-    <table border="1" cellpadding="10"> <!-– border –
-        obramowanie, cellpadding – rozmiar komórki -->
-        <!-- Table header -->
-        <thead>
-        <tr> <!-- Table row -->
-            <th>ID</th>
-            <!–- Table column -->
-            <th>Name</th>
-            <th>Last Name</th>
-            <th>Gender</th>
-            <th>Date of Birth</th>
-        </tr>
-        </thead>
-        <!-- Table body -->
-        <tbody>
-        <tr th:each="pracownicy : ${pracownicyList}">
-            <td th:text="${pracownicy.id}">ID</td>
-            <td th:text="${pracownicy.item}">Name</td>
-            <td th:text="${pracownicy.quantity}">Last Name</td>
-            <td th:text="${pracownicy.amount}">Gender</td>
-        </tr>
-        </tbody>
-    </table>
-
-</div>
--->
 
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>

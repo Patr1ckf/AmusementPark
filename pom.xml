@@ -19,7 +19,7 @@
 		<!-- New adding -->
 		<bootstrap.version>4.0.0-2</bootstrap.version>
 		<webjars-locator.version>0.30</webjars-locator.version>
-		<lombok.version>1.18.2</lombok.version>
+		<lombok.version>1.18.26</lombok.version>
 		<commons-validator.version>1.6</commons-validator.version>
 	</properties>
 	<dependencies>
@@ -89,7 +89,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -98,6 +97,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
 		</plugins>
 	</build>
 

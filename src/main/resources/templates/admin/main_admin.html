@@ -62,6 +62,43 @@
 </div>
 
 
+<div align="center">
+    <h1>Pracownicy</h1>
+
+    <a href ="/new">Dodaj pracownika</a>
+
+    <!-- Table -->
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>imie</th>
+            <th>nazwisko</th>
+            <th>plec</th>
+            <th>data_urodzenia</th>
+            <th>PESEL</th>
+            <th>email</th>
+            <th>numer_konta</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="pracownicy : ${pracownicyList}">
+            <td th:text="${pracownicy.id_pracownika}">ID</td>
+            <td th:text="${pracownicy.imie}">imie</td>
+            <td th:text="${pracownicy.nazwisko}">nazwisko</td>
+            <td th:text="${pracownicy.plec}">plec</td>
+            <td th:text="${pracownicy.data_urodzenia}">data_urodzenia</td>
+            <td th:text="${pracownicy.PESEL}">PESEL</td>
+            <td th:text="${pracownicy.email}">email</td>
+            <td th:text="${pracownicy.numer_konta}">numer_konta</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>

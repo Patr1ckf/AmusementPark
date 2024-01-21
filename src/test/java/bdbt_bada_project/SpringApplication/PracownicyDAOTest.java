@@ -33,6 +33,9 @@ class PracownicyDAOTest {
 
     @Test
     void testSave() {
+        Pracownicy pracownicy = new Pracownicy(1, "Milena", "Kozłowska", 'K', "1990-01-15", "03323304522",
+                                                "milena.koz2@wp.pl", "03344543234323456545454567", 16);
+        dao.save(pracownicy);
     }
 
     @Test

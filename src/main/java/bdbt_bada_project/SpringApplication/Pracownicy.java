@@ -1,69 +1,71 @@
 package bdbt_bada_project.SpringApplication;
 
 public class Pracownicy {
-    private int id;
-    private String name;
-    private String lastName;
-    private char gender;
-    private String dateOfBirth;
+    public int id_pracownika;
+    private String imie;
+    private String nazwisko;
+    private char plec;
+    private String data_urodzenia;
     private String PESEL;
     private String email;
-    private String bankAccount;
+    private String numer_konta;
+    private int id_parku;
 
     public Pracownicy(){
 
     }
 
-    public Pracownicy(int id, String name, String lastName, char gender, String dateOfBirth, String PESEL, String email, String bankAccount) {
+    public Pracownicy(int id, String name, String nazwisko, char gender, String dateOfBirth, String PESEL, String email, String bankAccount, int id_parku) {
         super();
-        this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-        this.gender = gender;
-        this.dateOfBirth = dateOfBirth;
+        this.id_pracownika = id;
+        this.imie = name;
+        this.nazwisko = nazwisko;
+        this.plec = gender;
+        this.data_urodzenia = dateOfBirth;
         this.PESEL = PESEL;
         this.email = email;
-        this.bankAccount = bankAccount;
+        this.numer_konta = bankAccount;
+        this.id_parku = id_parku;
     }
 
-    public int getId() {
-        return id;
+    public int getId_pracownika() {
+        return id_pracownika;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_pracownika(int id_pracownika) {
+        this.id_pracownika = id_pracownika;
     }
 
-    public String getName() {
-        return name;
+    public String getImie() {
+        return imie;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setImie(String imie) {
+        this.imie = imie;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getNazwisko() {
+        return nazwisko;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setNazwisko(String nazwisko) {
+        this.nazwisko = nazwisko;
     }
 
-    public char getGender() {
-        return gender;
+    public char getPlec() {
+        return plec;
     }
 
-    public void setGender(char gender) {
-        this.gender = gender;
+    public void setPlec(char plec) {
+        this.plec = plec;
     }
 
-    public String getDateOfBirth() {
-        return dateOfBirth;
+    public String getData_urodzenia() {
+        return data_urodzenia;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setData_urodzenia(String data_urodzenia) {
+        this.data_urodzenia = data_urodzenia;
     }
 
     public String getPESEL() {
@@ -82,25 +84,33 @@ public class Pracownicy {
         this.email = email;
     }
 
-    public String getBankAccount() {
-        return bankAccount;
+    public String getNumer_konta() {
+        return numer_konta;
     }
 
-    public void setBankAccount(String bankAccount) {
-        this.bankAccount = bankAccount;
+    public void setNumer_konta(String numer_konta) {
+        this.numer_konta = numer_konta;
+    }
+
+    public int getId_parku() {
+        return id_parku;
+    }
+
+    public void setId_parku(int id_parku) {
+        this.id_parku = id_parku;
     }
 
     @Override
     public String toString() {
         return "Pracownicy{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", gender=" + gender +
-                ", dateOfBirth='" + dateOfBirth + '\'' +
+                "id=" + id_pracownika +
+                ", name='" + imie + '\'' +
+                ", lastName='" + nazwisko + '\'' +
+                ", gender=" + plec +
+                ", dateOfBirth='" + data_urodzenia + '\'' +
                 ", PESEL='" + PESEL + '\'' +
                 ", email='" + email + '\'' +
-                ", bankAccount='" + bankAccount + '\'' +
+                ", bankAccount='" + numer_konta + '\'' +
                 '}';
     }
 }
