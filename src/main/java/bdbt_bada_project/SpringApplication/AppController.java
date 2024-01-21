@@ -4,8 +4,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +28,8 @@ public class AppController implements WebMvcConfigurer {
         registry.addViewController("/main_user").setViewName("user/main_user");
         registry.addViewController("/new").setViewName("new_form");
         registry.addViewController("/save").setViewName("admin/main_admin");
+        registry.addViewController("/edit{id}").setViewName("edit_form");
+        registry.addViewController("/delete").setViewName("edit_form");
     }
 
 
@@ -79,6 +83,41 @@ public class AppController implements WebMvcConfigurer {
         @RequestMapping(value="/save", method = RequestMethod.POST)
         public String save(@ModelAttribute("pracownicy") Pracownicy pracownicy){
             dao.save(pracownicy);
+            return "redirect:/main_admin";
+        }
+    }
+
+    @Controller
+    public class EdytujPracownik {
+
+        @RequestMapping("/edit/{id}")
+        public ModelAndView showEditForm(@PathVariable(name = "id") int id) {
+            ModelAndView mav = new ModelAndView("edit_form");
+            Pracownicy pracownicy = dao.get(id);
+            mav.addObject("pracownicy", pracownicy);
+
+            return mav;
+        }
+    }
+
+    @Controller
+    public class UpdatePracownika {
+
+        @RequestMapping(value = "/update", method = RequestMethod.POST)
+        public String update(@ModelAttribute("pracownicy") Pracownicy pracownicy){
+            dao.update(pracownicy);
+
+            return "redirect:/main_admin";
+        }
+    }
+
+    @Controller
+    public class DeletePracownik {
+
+        @RequestMapping("/delete/{id}")
+        public String delete(@PathVariable(name = "id") int id){
+            dao.delete(id);
+
             return "redirect:/main_admin";
         }
     }

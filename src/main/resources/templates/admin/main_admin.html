@@ -67,6 +67,8 @@
 
     <a href ="/new">Dodaj pracownika</a>
 
+    <br/><br/>
+
     <!-- Table -->
     <table border="1" cellpadding="10">
         <thead>
@@ -91,6 +93,11 @@
             <td th:text="${pracownicy.PESEL}">PESEL</td>
             <td th:text="${pracownicy.email}">email</td>
             <td th:text="${pracownicy.numer_konta}">numer_konta</td>
+            <td>
+                <a th:href="@{'/edit/' + ${pracownicy.id_pracownika}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/' + ${pracownicy.id_pracownika}}">Delete</a>
+            </td>
         </tr>
         </tbody>
     </table>

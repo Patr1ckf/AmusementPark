@@ -8,6 +8,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import java.util.List;
 
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PracownicyDAOTest {
@@ -40,13 +41,31 @@ class PracownicyDAOTest {
 
     @Test
     void testGet() {
+        int id = 50;
+        Pracownicy pracownicy = dao.get(id);
+
+        assertNotNull(pracownicy);
     }
 
     @Test
     void testUpdate() {
+        Pracownicy pracownicy = new Pracownicy();
+        pracownicy.setId_pracownika(50);
+        pracownicy.setImie("Patryk");
+        pracownicy.setNazwisko("Figiel");
+        pracownicy.setPlec('M');
+        pracownicy.setData_urodzenia("1998-02-22");
+        pracownicy.setPESEL("03402501576");
+        pracownicy.setEmail("patryk.f@gmail.com");
+        pracownicy.setNumer_konta("03344543234323456545454567");
+        pracownicy.setId_parku(16);
+
+        dao.update(pracownicy);
     }
 
     @Test
     void testDelete() {
+        int id = 50;
+        dao.delete(id);
     }
 }
