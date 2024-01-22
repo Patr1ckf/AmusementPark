@@ -6,13 +6,6 @@
     border: none;
 }
 
-#logoutForm {
-    display: inline; /* Dodaj display: inline */
-    border: none;
-    margin: 0;
-    padding: 0;
-}
-
 .container .button1 {
     width: 220px;
     height: 100px;
