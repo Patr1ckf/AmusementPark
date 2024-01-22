@@ -1,4 +1,5 @@
 package bdbt_bada_project.SpringApplication.Controllers;
+import bdbt_bada_project.SpringApplication.Entities.AtrakcjeDAO;
 import bdbt_bada_project.SpringApplication.Entities.PracownicyDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -12,6 +13,7 @@ public class AppController implements WebMvcConfigurer {
 
     @Autowired
     private PracownicyDAO dao;
+    private AtrakcjeDAO dao1;
 
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/index").setViewName("index");
@@ -26,6 +28,11 @@ public class AppController implements WebMvcConfigurer {
         registry.addViewController("/delete").setViewName("admin/pracownicyEntity/dane_pracownikow");
         registry.addViewController("/newW").setViewName("admin/wynagrodzeniaEntity/new_form_wynagrodzenia");
         registry.addViewController("/saveW").setViewName("admin/wynagrodzeniaEntity/new_form_wynagrodzenia");
+        registry.addViewController("/new").setViewName("admin/atrakcjeEntity/new_form_atrakcje");
+        registry.addViewController("/save").setViewName("admin/atrakcjeEntity/dane_atrakcji");
+        registry.addViewController("/edit{id}").setViewName("admin/atrakcjeEntity/edit_form_atrakcje");
+        registry.addViewController("/delete").setViewName("admin/atrakcjeEntity/dane_atrakcji");
+
     }
 
     @RequestMapping(value = {"/main_admin"})

@@ -71,7 +71,7 @@
 			<artifactId>jdbc</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>C:/Users/patry/Desktop/ojdbc11.jar</systemPath>
+			<systemPath>D:/ojdbc11.jar</systemPath>
 		</dependency>
 
 		<dependency>
