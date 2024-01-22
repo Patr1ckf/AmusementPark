@@ -50,7 +50,8 @@ a.add-button {
     display: inline-block;
     padding: 10px 20px;
     text-decoration: none;
-    background-color: #1665c2;
+    background-image: linear-gradient(135deg, #0A5F60 0%, #371870 100%);
+    box-shadow: 0 20px 30px -6px rgba(75, 44, 176, 0.5);
     color: white;
     border-radius: 4px;
     transition: background-color 0.3s;
@@ -58,14 +59,15 @@ a.add-button {
 }
 
 a.add-button:hover {
-    background-color: #144b93;
-}
+    transform: translateY(10px);
+    box-shadow: none;}
 
 a.add-button2 {
     display: inline-block;
     padding: 6px 12px; /* Zmniejsza padding guzika 2 */
     text-decoration: none;
-    background-color: #1665c2;
+    background-image: linear-gradient(135deg, #0A5F60 0%, #371870 100%);
+    box-shadow: 0 10px 15px -6px rgba(75, 44, 176, 0.5);
     color: white;
     border-radius: 4px;
     transition: background-color 0.3s;
@@ -73,5 +75,11 @@ a.add-button2 {
 }
 
 a.add-button2:hover {
-    background-color: #144b93;
+    transform: translateY(5px);
+    box-shadow: none;
+}
+.navbar{
+    background-image: linear-gradient(135deg, #0A5F60 0%, #371870 100%);
+    font-family: 'Pacifico', cursive;
+
 }

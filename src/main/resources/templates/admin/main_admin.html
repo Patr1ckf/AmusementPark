@@ -6,6 +6,13 @@
 
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
     <link th:rel="stylesheet" th:href="@{/css/admin/main_adminC.css}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+
+    <style>
+        body {
+            background-image: url("/img/pht.jpg");
+        }
+    </style>
 
 </head>
 <body>
@@ -29,6 +36,11 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">Zalogowany jako [[${#httpServletRequest.remoteUser}]]</a>
+                </li>
+
                 <li class="nav-item">
                     <form th:action="@{/logout}" method="post" id="logoutForm">
                         <a class="nav-link" href="javascript:{}" onclick="document.getElementById('logoutForm').submit();">Wyloguj</a>
@@ -39,6 +51,7 @@
     </div>
 </nav>
 
+<div class="overlay">
 <div class="container">
     <a th:href="@{/admin/dane_pracownikow}">
         <button class="button button2"> Pracownicy </button>
@@ -46,6 +59,7 @@
     <a th:href="@{/admin/wynagrodzenia}">
         <button class="button button1"> Wynagrodzenia </button>
     </a>
+</div>
 </div>
 
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
