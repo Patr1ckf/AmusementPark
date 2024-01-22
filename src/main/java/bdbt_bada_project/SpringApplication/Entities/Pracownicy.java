@@ -1,4 +1,4 @@
-package bdbt_bada_project.SpringApplication;
+package bdbt_bada_project.SpringApplication.Entities;
 
 public class Pracownicy {
     public int id_pracownika;

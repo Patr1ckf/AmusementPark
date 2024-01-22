@@ -1,5 +1,6 @@
-package bdbt_bada_project.SpringApplication;
+package bdbt_bada_project.SpringApplication.Entities;
 
+import bdbt_bada_project.SpringApplication.Entities.Pracownicy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

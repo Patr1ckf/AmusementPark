@@ -1,5 +1,7 @@
 package bdbt_bada_project.SpringApplication;
 
+import bdbt_bada_project.SpringApplication.Entities.Pracownicy;
+import bdbt_bada_project.SpringApplication.Entities.PracownicyDAO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
