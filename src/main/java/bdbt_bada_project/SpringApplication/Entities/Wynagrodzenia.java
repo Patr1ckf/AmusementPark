@@ -30,8 +30,12 @@ public class Wynagrodzenia {
     }
 
     public String getData() {
-        return data;
-    }
+        if(data == null){
+            return data;
+        }
+        else {
+            return data.substring(0, 10);
+        }    }
 
     public void setData(String data) {
         this.data = data;

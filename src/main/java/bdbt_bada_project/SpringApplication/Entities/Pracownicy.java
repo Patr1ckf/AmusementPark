@@ -61,7 +61,12 @@ public class Pracownicy {
     }
 
     public String getData_urodzenia() {
-        return data_urodzenia;
+        if(data_urodzenia == null){
+            return data_urodzenia;
+        }
+        else {
+            return data_urodzenia.substring(0, 10);
+        }
     }
 
     public void setData_urodzenia(String data_urodzenia) {
