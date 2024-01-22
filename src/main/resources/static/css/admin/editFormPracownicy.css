@@ -16,6 +16,13 @@ h1 {
     margin-top: 20px;
 }
 
+#logoutForm {
+    display: inline; /* Dodaj display: inline */
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;

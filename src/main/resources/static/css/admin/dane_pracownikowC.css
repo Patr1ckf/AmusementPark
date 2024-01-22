@@ -40,6 +40,12 @@ tr:nth-child(even) {
     background-color: #f2f2f2; /* Kolor tła komórek w parzystych wierszach */
 }
 
+#logoutForm {
+    display: inline; /* Dodaj display: inline */
+    border: none;
+    margin: 0;
+    padding: 0;
+}
 a.add-button {
     display: inline-block;
     padding: 10px 20px;
