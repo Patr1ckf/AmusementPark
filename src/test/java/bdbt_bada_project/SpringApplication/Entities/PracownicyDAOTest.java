@@ -1,4 +1,4 @@
-package bdbt_bada_project.SpringApplication;
+package bdbt_bada_project.SpringApplication.Entities;
 
 import bdbt_bada_project.SpringApplication.Entities.Pracownicy;
 import bdbt_bada_project.SpringApplication.Entities.PracownicyDAO;
@@ -67,7 +67,7 @@ class PracownicyDAOTest {
 
     @Test
     void testDelete() {
-        int id = 50;
+        int id = 46;
         dao.delete(id);
     }
 }

@@ -20,10 +20,12 @@ public class AppController implements WebMvcConfigurer {
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/main_admin").setViewName("admin/main_admin");
         registry.addViewController("/main_user").setViewName("user/main_user");
-        registry.addViewController("/new").setViewName("admin/new_form");
-        registry.addViewController("/save").setViewName("admin/main_admin");
-        registry.addViewController("/edit{id}").setViewName("admin/edit_form");
-        registry.addViewController("/delete").setViewName("admin/edit_form");
+        registry.addViewController("/new").setViewName("admin/pracownicyEntity/new_form_pracownicy");
+        registry.addViewController("/save").setViewName("admin/pracownicyEntity/dane_pracownikow");
+        registry.addViewController("/edit{id}").setViewName("admin/pracownicyEntity/edit_form_pracownicy");
+        registry.addViewController("/delete").setViewName("admin/pracownicyEntity/dane_pracownikow");
+        registry.addViewController("/newW").setViewName("admin/wynagrodzeniaEntity/new_form_wynagrodzenia");
+        registry.addViewController("/saveW").setViewName("admin/wynagrodzeniaEntity/new_form_wynagrodzenia");
     }
 
     @RequestMapping(value = {"/main_admin"})
