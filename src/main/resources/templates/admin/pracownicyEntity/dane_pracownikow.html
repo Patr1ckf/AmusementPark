@@ -5,6 +5,8 @@
     <title>Main Admin Page</title>
 
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/admin/dane_pracownikowC.css}"/>
+
 
 </head>
 <body>
@@ -41,30 +43,8 @@
     </div>
 </nav>
 
-<div class="container">
-    <div class="row">
-
-        <div class="col-md-10 mt-5">
-            <form method="post" th:action="@{/index}">
-                <div class="form-group">
-                    <label style="font-size:30px" th:inline="text">Welcome <a
-                            style="color:lightskyblue; text-transform:capitalize"><b>[[${#httpServletRequest.remoteUser}]]</b></a>
-                        to the main page!</label>
-                    <div style="font-size:20px">If you want to logout, click "Logout" button under this text.</div>
-                </div>
-
-                <button class="btn btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Logout
-                </button>
-            </form>
-        </div>
-
-    </div>
-</div>
-
 <div align="center">
     <h1>Pracownicy</h1>
-
-    <a href ="/new">Dodaj pracownika</a>
 
     <br/><br/>
 
@@ -73,36 +53,41 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>imie</th>
-            <th>nazwisko</th>
-            <th>plec</th>
-            <th>data_urodzenia</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Płeć</th>
+            <th>Data urodzenia</th>
             <th>PESEL</th>
-            <th>email</th>
-            <th>numer_konta</th>
+            <th>E-mail</th>
+            <th>Numerkonta</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="pracownicy : ${pracownicyList}">
             <td th:text="${pracownicy.id_pracownika}">ID</td>
-            <td th:text="${pracownicy.imie}">imie</td>
-            <td th:text="${pracownicy.nazwisko}">nazwisko</td>
-            <td th:text="${pracownicy.plec}">plec</td>
-            <td th:text="${pracownicy.data_urodzenia}">data_urodzenia</td>
+            <td th:text="${pracownicy.imie}">Imię</td>
+            <td th:text="${pracownicy.nazwisko}">Nazwisko</td>
+            <td th:text="${pracownicy.plec}">Płeć</td>
+            <td th:text="${pracownicy.data_urodzenia}">Data urodzenia</td>
             <td th:text="${pracownicy.PESEL}">PESEL</td>
-            <td th:text="${pracownicy.email}">email</td>
-            <td th:text="${pracownicy.numer_konta}">numer_konta</td>
+            <td th:text="${pracownicy.email}">E-mail</td>
+            <td th:text="${pracownicy.numer_konta}">Numer konta</td>
             <td>
-                <a th:href="@{'/edit/' + ${pracownicy.id_pracownika}}">Edit</a>
+<!--                <a th:href="@{'/edit/' + ${pracownicy.id_pracownika}}">Edit</a>-->
+                <a th:href="@{'/edit/' + ${pracownicy.id_pracownika}}" class="add-button2">Edytuj</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/delete/' + ${pracownicy.id_pracownika}}">Delete</a>
+<!--                <a th:href="@{'/delete/' + ${pracownicy.id_pracownika}}">Delete</a>-->
+                <a th:href="@{'/delete/' + ${pracownicy.id_pracownika}}" class="add-button2">Usuń</a>
+
             </td>
         </tr>
         </tbody>
     </table>
 
-</div>
+    <a th:href="@{/new}" class="add-button">Dodaj pracownika</a>
 
+</div>
 
 
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>

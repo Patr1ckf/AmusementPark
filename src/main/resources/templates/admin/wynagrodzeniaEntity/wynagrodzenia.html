@@ -5,6 +5,7 @@
     <title>Main Admin Page</title>
 
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/admin/dane_pracownikowC.css}"/>
 
 </head>
 <body>
@@ -44,8 +45,6 @@
 <div align="center">
     <h1>Wynagrodzenia</h1>
 
-    <a href ="/newW">Dodaj wynagrodzenie</a>
-
     <br/><br/>
 
     <!-- Table -->
@@ -57,6 +56,7 @@
             <th>Kwota brutto</th>
             <th>Kwota netto</th>
             <th>ID pracownika</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -68,13 +68,17 @@
             <td th:text="${wynagrodzenia.id_pracownika}">ID pracownika</td>
 
             <td>
-                <a th:href="@{'/editW/' + ${wynagrodzenia.id_wynagrodzenia}}">Edit</a>
+                <a th:href="@{'/editW/' + ${wynagrodzenia.id_wynagrodzenia}}" class="add-button2">Edytuj</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/deleteW/' + ${wynagrodzenia.id_wynagrodzenia}}">Delete</a>
+                <a th:href="@{'/deleteW/' + ${wynagrodzenia.id_wynagrodzenia}}" class="add-button2">Usuń</a>
+
             </td>
         </tr>
         </tbody>
     </table>
+
+    <a th:href="@{/newW}" class="add-button">Dodaj wynagrodzenie</a>
+
 
 </div>
 

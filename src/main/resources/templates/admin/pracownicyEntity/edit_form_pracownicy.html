@@ -3,8 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Edytuj pracownika</title>
+
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/admin/editFormPracownicy.css}"/>
 </head>
 <body>
+
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <div class="container">
+    <a class="navbar-brand" href="/static">Park rozrywki</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/index}">Home</a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Main
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" th:inline="text" style="color:lightskyblue;">You are logged in as <b
+                  style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
 
 <div align="center">
 
@@ -39,27 +77,27 @@
       </tr>
 
       <tr>
-        <td>Pesel</td>
+        <td>PESEL</td>
         <td><input type="text" th:field="*{PESEL}"></td>
       </tr>
 
       <tr>
-        <td>email</td>
+        <td>E-mail</td>
         <td><input type="text" th:field="*{email}"></td>
       </tr>
 
       <tr>
-        <td>Numer konta</td>
+        <td>Numer konta bankowego</td>
         <td><input type="text" th:field="*{numer_konta}"></td>
       </tr>
 
       <tr>
-        <td>Numer parku</td>
+        <td>ID parku</td>
         <td><input type="text" th:field="*{id_parku}"></td>
       </tr>
 
       <tr>
-        <td colspan="2"><button type="submit">Save</button></td>
+        <td colspan="2"><button type="submit">Zapisz</button></td>
       </tr>
 
 

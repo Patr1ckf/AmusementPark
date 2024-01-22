@@ -30,9 +30,8 @@ public class WynagrodzeniaDAO {
     // Insert – wstawianie nowego wiersza do bazy
     public void save(Wynagrodzenia wynagrodzenia) {
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
-        insertActor.withTableName("wynagrodzenia").usingColumns("id_wynagrodzenia", "data", "kwota_brutto","kwota_netto",
-                "id_pracownika");
-
+        insertActor.withTableName("wynagrodzenia").
+                usingColumns("DATA", "KWOTA_BRUTTO", "KWOTA_NETTO", "ID_PRACOWNIKA");
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(wynagrodzenia);
         insertActor.execute(param);
     }
@@ -56,8 +55,7 @@ public class WynagrodzeniaDAO {
 
     // Update – aktualizacja danych
     public void update(Wynagrodzenia wynagrodzenia) {
-        String sql = "UPDATE WYNAGRODZENIA SET DATA=:data, KWOTA_BRUTTO=:kwota_brutto, KWOTA_NETTO=:kwota_netto, ID_PRACOWNIKA=:id_pracownika"  +
-                " WHERE ID_WYNAGRODZENIA=:id_wynagrodzenia";
+        String sql = "UPDATE WYNAGRODZENIA SET DATA=:data, KWOTA_BRUTTO=:kwota_brutto, KWOTA_NETTO=:kwota_netto, ID_PRACOWNIKA=:id_pracownika WHERE ID_WYNAGRODZENIA=:id_wynagrodzenia";
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(wynagrodzenia);
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
 
