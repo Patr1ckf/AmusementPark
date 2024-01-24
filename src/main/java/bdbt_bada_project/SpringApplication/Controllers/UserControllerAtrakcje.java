@@ -1,8 +1,6 @@
 package bdbt_bada_project.SpringApplication.Controllers;
 import bdbt_bada_project.SpringApplication.Entities.Atrakcje;
 import bdbt_bada_project.SpringApplication.Entities.AtrakcjeDAO;
-import bdbt_bada_project.SpringApplication.Entities.Pracownicy;
-import bdbt_bada_project.SpringApplication.Entities.PracownicyDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

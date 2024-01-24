@@ -23,20 +23,21 @@ public class AtrakcjeDAO {
     public List<Atrakcje> list(){
         String sql = "SELECT * FROM ATRAKCJE";
 
-        List<Atrakcje> AtrakcjeList = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Atrakcje.class));
-        return AtrakcjeList;
+        List<Atrakcje> atrakcjeList = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Atrakcje.class));
+        return atrakcjeList;
     }
     // Insert – wstawianie nowego wiersza do bazy
     public void save(Atrakcje atrakcje) {
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
-        insertActor.withTableName("atrakcje").usingColumns("id_atrakcji", "nazwa", "dostępność_dla_dzieci","producent",
-                "liczba_miejsc", "opis", "id_parku");
+        insertActor.withTableName("atrakcje").
+                usingColumns("NAZWA","PRODUCENT",
+                "LICZBA_MIEJSC", "OPIS", "ID_PARKU");
 
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(atrakcje);
         insertActor.execute(param);
     }
 
-    // Read – odczytywanie danych z bazy
+//     Read – odczytywanie danych z bazy
     public Atrakcje get(int id) {
         String sql = "SELECT * FROM ATRAKCJE WHERE ID_ATRAKCJI = ?";
         Object[] args = {id};
@@ -55,8 +56,7 @@ public class AtrakcjeDAO {
 
     // Update – aktualizacja danych
     public void update(Atrakcje atrakcje) {
-        String sql = "UPDATE ATRAKCJE SET NAZWA=:nazwa, PRODUCENT=:producent, DOSTEPNOSC_DLA_DZIECI=:dostępność_dla_dzieci," +
-                "     LICZBA_MIEJSC=:liczba_miejsc, OPIS=:opis, ID_PARKU=:id_parku" +
+        String sql = "UPDATE ATRAKCJE SET NAZWA=:nazwa, PRODUCENT=:producent, LICZBA_MIEJSC=:liczba_miejsc, OPIS=:opis, ID_PARKU=:id_parku" +
                 " WHERE ID_ATRAKCJI=:id_atrakcji";
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(atrakcje);
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);

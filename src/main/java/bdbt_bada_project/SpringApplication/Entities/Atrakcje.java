@@ -1,25 +1,23 @@
 package bdbt_bada_project.SpringApplication.Entities;
 
 public class Atrakcje {
+
     public int id_atrakcji;
     private String nazwa;
-    private char dostepnosc_dzieci;
-    private String producer;
+    private String producent;
     private int liczba_miejsc;
     private String opis;
     private int id_parku;
-
 
     public Atrakcje(){
 
     }
 
-    public Atrakcje(int id, String nazwa, char dostepnosc_dzieci, String producer, int liczba_miejsc, String opis,  int id_parku) {
+    public Atrakcje(int id, String nazwa, String producent, int liczba_miejsc, String opis,  int id_parku) {
         super();
         this.id_atrakcji = id;
         this.nazwa = nazwa;
-        this.dostepnosc_dzieci = dostepnosc_dzieci;
-        this.producer = producer;
+        this.producent = producent;
         this.liczba_miejsc = liczba_miejsc;
         this.opis = opis;
         this.id_parku = id_parku;
@@ -28,6 +26,7 @@ public class Atrakcje {
     public int getId_atrakcji() {
         return id_atrakcji;
     }
+
     public void setId_atrakcji(int id_atrakcji) {
         this.id_atrakcji = id_atrakcji;
     }
@@ -40,19 +39,14 @@ public class Atrakcje {
         this.nazwa = nazwa;
     }
 
-    public char getDostepnosc_dzieci() {
-        return dostepnosc_dzieci;
-    }
-    public void setDostepnosc_dzieci(char dostepnosc_dzieci) {
-        this.dostepnosc_dzieci = dostepnosc_dzieci;
+    public String getProducent() {
+        return producent;
     }
 
-    public String getProducer() {
-        return producer;
+    public void setProducent(String producent) {
+        this.producent = producent;
     }
-    public void setProducer(String producer) {
-        this.producer = producer;
-    }
+
     public int getLiczba_miejsc() {
         return liczba_miejsc;
     }
@@ -69,25 +63,23 @@ public class Atrakcje {
         this.opis = opis;
     }
 
-    public int getid_parku() {
+    public int getId_parku() {
         return id_parku;
     }
 
-    public void setid_parku(int id_parku) {
+    public void setId_parku(int id_parku) {
         this.id_parku = id_parku;
     }
-
 
     @Override
     public String toString() {
         return "Atrakcje{" +
-                "id=" + id_atrakcji +
+                "id_atrakcji=" + id_atrakcji +
                 ", nazwa='" + nazwa + '\'' +
-                ", Dostępność dla dzieci='" + dostepnosc_dzieci + '\'' +
-                ", Producent=" + producer +
-                ", Liczba miejsc='" + liczba_miejsc + '\'' +
-                ", Opis='" + opis + '\'' +
-                ", Id parku='" + id_parku + '\'' +
+                ", producent='" + producent + '\'' +
+                ", liczba_miejsc=" + liczba_miejsc +
+                ", opis='" + opis + '\'' +
+                ", id_parku=" + id_parku +
                 '}';
     }
 }

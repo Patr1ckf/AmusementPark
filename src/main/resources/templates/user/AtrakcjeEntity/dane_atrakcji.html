@@ -41,26 +41,6 @@
   </div>
 </nav>
 
-<div class="container">
-  <div class="row">
-
-    <div class="col-md-10 mt-5">
-      <form method="post" th:action="@{/index}">
-        <div class="form-group">
-          <label style="font-size:30px" th:inline="text">Welcome <a
-                  style="color:lightskyblue; text-transform:capitalize"><b>[[${#httpServletRequest.remoteUser}]]</b></a>
-            to the main page!</label>
-          <div style="font-size:20px">If you want to logout, click "Logout" button under this text.</div>
-        </div>
-
-        <button class="btn btn-primary" type="submit" onclick="successfullyLogout()" value="Sign Out">Logout
-        </button>
-      </form>
-    </div>
-
-  </div>
-</div>
-
 <div align="center">
   <h1>Atrakcje</h1>
 
@@ -86,7 +66,7 @@
     <tr th:each="atrakcje : ${atrakcjeList}">
       <td th:text="${atrakcje.id_atrakcji}">ID</td>
       <td th:text="${atrakcje.nazwa}">nazwa</td>
-      <td th:text="${atrakcje.producent}">producent</td>
+<!--      <td th:text="${atrakcje.producent}">producent</td>-->
       <td th:text="${atrakcje.dostepnosc_dla_dzieci)}">dostępność_dla_dzieci</td>
       <td th:text="${atrakcje.liczba_miejsc}">liczba_miejsc</td>
       <td th:text="${atrakcje.opis}">opis</td>
