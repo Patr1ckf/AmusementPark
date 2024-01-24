@@ -1,26 +1,22 @@
-<!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Main Admin Page</title>
-
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head >
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
-    <link th:rel="stylesheet" th:href="@{/css/admin/main_adminC.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/admin/editFormPracownicy.css}"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
 
-    <style>
-        body {
-            background-image: url("/img/pht.jpg");
-        }
-    </style>
+    <meta charset="UTF-8">
+    <title>Nowa atrakcja</title>
 
 </head>
 <body>
 
+
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-        <a class="navbar-brand" href="/">Park rozrywki</a>
+        <a class="navbar-brand" href="/static">Park rozrywki</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -28,12 +24,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
+
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/index}">Strona główna</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/main}">Panel</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" th:inline="text" style="color:lightskyblue;">Zalogowany jako [[${#httpServletRequest.remoteUser}]]</a>
                 </li>
@@ -48,32 +47,47 @@
     </div>
 </nav>
 
-<div class="overlay">
-
-    <div class="nap">
-        <h3>Atrakcje</h3>
-    </div>
 
 
-    <div class="container2">
-    <div class="row">
-        <!-- Dynamicznie generowane kafelki atrakcji -->
-        <div th:each="atrakcje : ${atrakcjeList}">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title" th:text="${atrakcje.nazwa}"></h5>
-                    <p class="card-text" th:text="${atrakcje.opis}"></p>
-                </div>
-            </div>
-        </div>
-    </div>
+<div align="center">
+    <h1>Wprowadź nową atrakcję</h1>
+
+    <br/>
+
+    <form action="#" th:action="@{/saveA}" th:object="${atrakcje}" method="post">
+        <table border = "1" cellpadding = "10">
+<!--            <tr>-->
+<!--                <td>ID</td>-->
+<!--                <td><input type="text" th:field="*{id_atrakcji}"></td>-->
+<!--            </tr>-->
+
+            <tr>
+                <td>Nazwa</td>
+                <td><input type="text" th:field="*{nazwa}"></td>
+            </tr>
+
+            <tr>
+                <td>Producent</td>
+                <td><input type="text" th:field="*{producent}"></td>
+            </tr>
+
+            <tr>
+                <td>Liczba miejsc</td>
+                <td><input type="text" th:field="*{liczba_miejsc}"></td>
+            </tr>
+
+            <tr>
+                <td>Opis</td>
+                <td><input type="text" th:field="*{opis}"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><button type="submit">Zapisz</button></td>
+            </tr>
+
+        </table>
+
+    </form>
 </div>
-</div>
-
-<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/script.js}"></script>
-
 </body>
 </html>

@@ -7,7 +7,7 @@ public class Atrakcje {
     private String producent;
     private int liczba_miejsc;
     private String opis;
-    private int id_parku;
+    private int id_parku = 16;
 
     public Atrakcje(){
 

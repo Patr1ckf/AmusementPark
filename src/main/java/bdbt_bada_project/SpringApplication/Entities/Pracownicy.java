@@ -9,7 +9,7 @@ public class Pracownicy {
     private String PESEL;
     private String email;
     private String numer_konta;
-    private int id_parku;
+    private int id_parku = 16;
 
     public Pracownicy(){
 

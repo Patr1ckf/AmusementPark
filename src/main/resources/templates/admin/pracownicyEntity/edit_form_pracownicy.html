@@ -28,10 +28,8 @@
           <a class="nav-link" th:href="@{/index}">Strona główna</a>
         </li>
 
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Panel
-            <span class="sr-only">(current)</span>
-          </a>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/main}">Panel</a>
         </li>
 
         <li class="nav-item">
@@ -60,7 +58,7 @@
 
       <tr>
         <td>ID</td>
-        <td><input type="text" th:field="*{id_pracownika}"></td>
+        <td><input type="text" th:field="*{id_pracownika}" readonly></td>
       </tr>
 
       <tr>
@@ -96,11 +94,6 @@
       <tr>
         <td>Numer konta bankowego</td>
         <td><input type="text" th:field="*{numer_konta}"></td>
-      </tr>
-
-      <tr>
-        <td>ID parku</td>
-        <td><input type="text" th:field="*{id_parku}"></td>
       </tr>
 
       <tr>

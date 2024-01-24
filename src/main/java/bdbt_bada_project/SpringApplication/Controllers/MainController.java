@@ -1,4 +1,6 @@
 package bdbt_bada_project.SpringApplication.Controllers;
+import bdbt_bada_project.SpringApplication.Entities.Atrakcje;
+import bdbt_bada_project.SpringApplication.Entities.AtrakcjeDAO;
 import bdbt_bada_project.SpringApplication.Entities.Pracownicy;
 import bdbt_bada_project.SpringApplication.Entities.PracownicyDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,9 @@ public class MainController {
 
     @Autowired
     private PracownicyDAO dao;
+
+    @Autowired
+    private AtrakcjeDAO dao2;
 
     @RequestMapping("/main")
     public String defaultAfterLogin
@@ -45,6 +50,19 @@ public class MainController {
             return "redirect:/main_user";
         }
     }
+
+    @RequestMapping("/main_user")
+    public String showUserUData(Model model, HttpServletRequest request) {
+        List<Atrakcje> atrakcjeList = dao2.list();
+        model.addAttribute("atrakcjeList", atrakcjeList);
+
+        if (request.isUserInRole("USER")) {
+            return "user/main_user";
+        } else {
+            return "redirect:/main_admin";
+        }
+    }
+
 
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
     public String logout(HttpServletRequest request, HttpServletResponse response) {

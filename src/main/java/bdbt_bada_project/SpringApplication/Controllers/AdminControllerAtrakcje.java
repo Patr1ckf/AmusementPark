@@ -13,51 +13,51 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-public class UserControllerAtrakcje {
+public class AdminControllerAtrakcje {
+
     @Autowired
     private AtrakcjeDAO dao;
 
-    @RequestMapping("/user/dane_atrakcji")
-    public String showUserUserData(Model model) {
+    @RequestMapping("/admin/dane_atrakcji")
+    public String showAdminUserData(Model model) {
         List<Atrakcje> atrakcjeList = dao.list();
         model.addAttribute("atrakcjeList", atrakcjeList);
-        return "user/AtrakcjeEntity/dane_atrakcji";
+        return "admin/AtrakcjeAdminEntity/dane_atrakcji";
     }
 
-    @RequestMapping(value = "/newAtrakcje")
+    @RequestMapping(value = "/newA")
     public String showNewForm(Model model) {
         Atrakcje atrakcje = new Atrakcje();
-        model.addAttribute("atrakcja", atrakcje);
-        return "user/AtrakcjeEntity/new_form_atrakcje";
+        model.addAttribute("atrakcje", atrakcje);
+        return "admin/AtrakcjeAdminEntity/new_form_atrakcje";
     }
 
-    @RequestMapping(value="/saveAtrakcje", method = RequestMethod.POST)
+    @RequestMapping(value="/saveA", method = RequestMethod.POST)
     public String save(@ModelAttribute("atrakcje") Atrakcje atrakcje){
         dao.save(atrakcje);
-        return "redirect:/user/dane_atrakcji";
+        return "redirect:/admin/dane_atrakcji";
     }
 
-    @RequestMapping("/editAtrakcje/{id}")
+    @RequestMapping("/editA/{id}")
     public ModelAndView showEditForm(@PathVariable(name = "id") int id) {
-        ModelAndView mav = new ModelAndView("user/AtrakcjeEntity/edit_form_atrakcje");
+        ModelAndView mav = new ModelAndView("admin/AtrakcjeAdminEntity/edit_form_atrakcje");
         Atrakcje atrakcje = dao.get(id);
         mav.addObject("atrakcje", atrakcje);
         return mav;
     }
 
-    @RequestMapping(value = "/updateAtrakcje", method = RequestMethod.POST)
+    @RequestMapping(value = "/updateA", method = RequestMethod.POST)
     public String update(@ModelAttribute("atrakcje") Atrakcje atrakcje){
         dao.update(atrakcje);
 
-        return "redirect:/user/dane_atrakcji";
+        return "redirect:/admin/dane_atrakcji";
     }
 
-    @RequestMapping("/deleteAtrakcje/{id}")
+    @RequestMapping("/deleteA/{id}")
     public String delete(@PathVariable(name = "id") int id){
         dao.delete(id);
 
-        return "redirect:/user/dane_atrakcji";
+        return "redirect:/admin/dane_atrakcji";
     }
 
 }
-

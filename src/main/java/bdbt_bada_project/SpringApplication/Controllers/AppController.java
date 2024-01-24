@@ -28,10 +28,8 @@ public class AppController implements WebMvcConfigurer {
         registry.addViewController("/delete").setViewName("admin/pracownicyEntity/dane_pracownikow");
         registry.addViewController("/newW").setViewName("admin/wynagrodzeniaEntity/new_form_wynagrodzenia");
         registry.addViewController("/saveW").setViewName("admin/wynagrodzeniaEntity/new_form_wynagrodzenia");
-        registry.addViewController("/new").setViewName("user/AtrakcjeEntity/new_form_atrakcje");
-        registry.addViewController("/save").setViewName("user/AtrakcjeEntity/dane_atrakcji");
-        registry.addViewController("/edit{id}").setViewName("user/AtrakcjeEntity/edit_form_atrakcje");
-        registry.addViewController("/delete").setViewName("user/AtrakcjeEntity/dane_atrakcji");
+        registry.addViewController("/newA").setViewName("admin/AtrakcjeAdminEntity/new_form_atrakcje");
+        registry.addViewController("/saveA").setViewName("admin/AtrakcjeAdminEntity/dane_atrakcji");
 
     }
 

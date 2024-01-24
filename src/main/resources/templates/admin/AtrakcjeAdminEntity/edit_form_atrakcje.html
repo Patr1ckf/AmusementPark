@@ -1,16 +1,15 @@
-<!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Main Admin Page</title>
-
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/admin/dane_pracownikowC.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/admin/editFormPracownicy.css}"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
-
-
+    <meta charset="UTF-8">
+    <title>Edytuj atrakcję</title>
 </head>
 <body>
+
+
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
@@ -41,58 +40,59 @@
                         <a class="nav-link" href="javascript:{}" onclick="document.getElementById('logoutForm').submit();">Wyloguj</a>
                     </form>
                 </li>
-
             </ul>
         </div>
     </div>
 </nav>
 
+
+
 <div align="center">
-    <h1>Wynagrodzenia</h1>
 
-    <br/><br/>
+    <h1>Edytuj atrakcję</h1>
+    <br/>
+    <form action="#" th:action="@{/updateA}" th:object="${atrakcje}" method="post">
+        <table border = "1" cellpadding="10">
 
-    <!-- Table -->
-    <table border="1" cellpadding="10">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Data</th>
-            <th>Kwota brutto</th>
-            <th>Kwota netto</th>
-            <th>ID pracownika</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="wynagrodzenia : ${wynagrodzeniaList}">
-            <td th:text="${wynagrodzenia.id_wynagrodzenia}">ID</td>
-            <td th:text="${wynagrodzenia.data}">data</td>
-            <td th:text="${wynagrodzenia.kwota_brutto}">Kwota brutto</td>
-            <td th:text="${wynagrodzenia.kwota_netto}">Kwota netto</td>
-            <td th:text="${wynagrodzenia.id_pracownika}">ID pracownika</td>
+            <tr>
+                <td>ID</td>
+                <td><input type="text" th:field="*{id_atrakcji}" readonly></td>
+            </tr>
 
-            <td>
-                <a th:href="@{'/editW/' + ${wynagrodzenia.id_wynagrodzenia}}" class="add-button2">Edytuj</a>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/deleteW/' + ${wynagrodzenia.id_wynagrodzenia}}" class="add-button2">Usuń</a>
+            <tr>
+                <td>Nazwa</td>
+                <td><input type="text" th:field="*{nazwa}"></td>
+            </tr>
 
-            </td>
-        </tr>
-        </tbody>
-    </table>
+            <tr>
+                <td>Producent</td>
+                <td><input type="text" th:field="*{producent}"></td>
+            </tr>
 
-    <a th:href="@{/newW}" class="add-button">Dodaj wynagrodzenie</a>
+            <tr>
+                <td>Liczba miejsc</td>
+                <td><input type="text" th:field="*{liczba_miejsc}"></td>
+            </tr>
+
+            <tr>
+                <td>Opis</td>
+                <td><input type="text" th:field="*{opis}"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><button type="submit">Zapisz</button></td>
+            </tr>
+
+
+        </table>
+
+
+
+    </form>
 
 
 </div>
 
-
-
-<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/script.js}"></script>
 
 </body>
 </html>

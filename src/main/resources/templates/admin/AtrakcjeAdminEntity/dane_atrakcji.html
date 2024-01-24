@@ -5,6 +5,8 @@
   <title>Main Admin Page</title>
 
   <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/admin/dane_pracownikowC.css}"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
 
 </head>
 <body>
@@ -22,20 +24,22 @@
       <ul class="navbar-nav ml-auto">
 
         <li class="nav-item">
-          <a class="nav-link" th:href="@{/index}">Home</a>
-        </li>
-
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Main
-            <span class="sr-only">(current)</span>
-          </a>
+          <a class="nav-link" th:href="@{/index}">Strona główna</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" th:inline="text" style="color:lightskyblue;">You are logged in as <b
-                  style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
+          <a class="nav-link" th:href="@{/main}">Panel</a>
         </li>
 
+        <li class="nav-item">
+          <a class="nav-link" th:inline="text" style="color:lightskyblue;">Zalogowany jako [[${#httpServletRequest.remoteUser}]]</a>
+        </li>
+
+        <li class="nav-item">
+          <form th:action="@{/logout}" method="post" id="logoutForm">
+            <a class="nav-link" href="javascript:{}" onclick="document.getElementById('logoutForm').submit();">Wyloguj</a>
+          </form>
+        </li>
       </ul>
     </div>
   </div>
@@ -44,8 +48,6 @@
 <div align="center">
   <h1>Atrakcje</h1>
 
-  <a href ="/new">Dodaj atrakcję</a>
-
   <br/><br/>
 
   <!-- Table -->
@@ -53,32 +55,33 @@
     <thead>
     <tr>
       <th>ID</th>
-      <th>nazwa</th>
-      <th>producent</th>
-      <th>dostępność_dla_dzieci</th>
-      <th>liczba_miejsc</th>
-      <th>opis</th>
-      <th>id-parku</th>
+      <th>Nazwa</th>
+      <th>Producent</th>
+      <th>Liczba miejsc</th>
+      <th>Opis</th>
+      <th>ID parku</th>
+      <th></th>
 
     </tr>
     </thead>
     <tbody>
     <tr th:each="atrakcje : ${atrakcjeList}">
       <td th:text="${atrakcje.id_atrakcji}">ID</td>
-      <td th:text="${atrakcje.nazwa}">nazwa</td>
-<!--      <td th:text="${atrakcje.producent}">producent</td>-->
-      <td th:text="${atrakcje.dostepnosc_dla_dzieci)}">dostępność_dla_dzieci</td>
-      <td th:text="${atrakcje.liczba_miejsc}">liczba_miejsc</td>
-      <td th:text="${atrakcje.opis}">opis</td>
-      <td th:text="${atrakcje.id_parku}">id_parku</td>
+      <td th:text="${atrakcje.nazwa}">Nazwa</td>
+      <td th:text="${atrakcje.producent}">Producent</td>
+      <td th:text="${atrakcje.liczba_miejsc}">Liczba miejsc</td>
+      <td th:text="${atrakcje.opis}">Opis</td>
+      <td th:text="${atrakcje.id_parku}">ID parku</td>
       <td>
-        <a th:href="@{'/edit/' + ${atrakcje.id_atrakcji}}">Edit</a>
+        <a th:href="@{'/editA/' + ${atrakcje.id_atrakcji}}" class="add-button2">Edytuj</a>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <a th:href="@{'/delete/' + ${atrakcje.id_atrakcji}}">Delete</a>
+        <a th:href="@{'/deleteA/' + ${atrakcje.id_atrakcji}}"class="add-button2" >Usuń</a>
       </td>
     </tr>
     </tbody>
   </table>
+
+  <a th:href="@{/newA}" class="add-button">Dodaj atrakcję</a>
 
 </div>
 

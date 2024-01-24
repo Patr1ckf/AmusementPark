@@ -75,3 +75,44 @@
     font-family: 'Pacifico', cursive;
 
 }
+.container2 {
+    margin: 100px;
+    margin-top: 80px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: -10px; /* Ustawienie ujemnego marginesu, aby skompensować dodatkowe marginesy */
+}
+
+.card {
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    text-align: center;
+    /*background-image: linear-gradient(135deg, #0A5F60 0%, #371870 100%);*/
+    box-shadow: 0 20px 30px -6px rgba(171, 88, 219, 0.5);
+    overflow: hidden;
+    transition: transform 0.2s;
+    margin: 5px; /* Dodaj margines między kafelkami */
+}
+
+.card:hover {
+    transform: scale(1.05);
+
+}
+
+.nap, h3{
+    margin-top: 25px;
+    font-size: 55px;
+    font-family: 'Pacifico', cursive;
+    text-align: center; /* Wyśrodkuj nagłówek */
+    color: white;
+}
+
+.card-title{
+    font-family: 'Pacifico', cursive;
+
+}
