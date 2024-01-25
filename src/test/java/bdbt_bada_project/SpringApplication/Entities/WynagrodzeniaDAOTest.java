@@ -47,11 +47,11 @@ class WynagrodzeniaDAOTest {
     @Test
     void update() {
         Wynagrodzenia wynagrodzenia = new Wynagrodzenia();
-        wynagrodzenia.setId_wynagrodzenia(2);
+        wynagrodzenia.setId_wynagrodzenia(221);
         wynagrodzenia.setData("2024-01-06");
         wynagrodzenia.setKwota_brutto(7800);
-        wynagrodzenia.setKwota_netto(6000);
-        wynagrodzenia.setId_pracownika(46);
+        wynagrodzenia.setKwota_netto(100);
+        wynagrodzenia.setId_pracownika(167);
 
         dao.update(wynagrodzenia);
     }
