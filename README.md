@@ -35,8 +35,7 @@ The application uses a relational database with tables for Pracownicy (Employees
 - To run the application locally, follow these steps:
 - Clone the repository by copying this code:
 ```bash
-Copy code
-git clone https://github.com/your-username/amusement-park-web-app.git
+git clone https://github.com/Patr1ckf/AmusementPark.git
 ```
 - Open the project in your preferred Java IDE.
 - Configure the database connection in the application.properties file. (ask me about detailed information about connection to a database on server)
@@ -49,5 +48,5 @@ git clone https://github.com/your-username/amusement-park-web-app.git
   - `/index`: Home page.
   - `/main_admin`: Admin dashboard for managing employees, salaries, and attractions.
   - `/main_user`: User dashboard for general amusement park information.
-  - `/login`: Login page (authentication not implemented in this version).
+  - `/login`: Login page (authentication not yet implemented in this version).
 - Perform CRUD operations on employees, salary records, and attractions using the respective pages.
