@@ -28,6 +28,7 @@ th, td {
     padding: 10px; /* Zwiększa padding komórek */
     text-align: center;
     border-bottom: 1px solid #ddd;
+    max-height: 113px
 }
 
 th {
@@ -56,6 +57,7 @@ a.add-button {
     border-radius: 4px;
     transition: background-color 0.3s;
     margin-top: 10px; /* Zmniejsza margines na górze guzika */
+    white-space: nowrap;
 }
 
 a.add-button:hover {
@@ -63,7 +65,7 @@ a.add-button:hover {
     box-shadow: none;}
 
 a.add-button2 {
-    display: inline-block;
+    display: flow;
     padding: 6px 12px; /* Zmniejsza padding guzika 2 */
     text-decoration: none;
     background-image: linear-gradient(135deg, #0A5F60 0%, #371870 100%);
@@ -72,6 +74,9 @@ a.add-button2 {
     border-radius: 4px;
     transition: background-color 0.3s;
     margin-top: 10px; /* Zmniejsza margines na górze guzika */
+    white-space: nowrap;
+    text-align: center;
+
 }
 
 a.add-button2:hover {
@@ -82,4 +87,9 @@ a.add-button2:hover {
     background-image: linear-gradient(135deg, #0A5F60 0%, #371870 100%);
     font-family: 'Pacifico', cursive;
 
+}
+
+th.hta{
+    display: grid;
+    text-align: center;
 }
