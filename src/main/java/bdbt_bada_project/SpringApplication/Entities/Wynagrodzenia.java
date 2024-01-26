@@ -9,7 +9,6 @@ public class Wynagrodzenia {
     private int id_pracownika;
 
     public Wynagrodzenia(){
-
     }
 
     public Wynagrodzenia(int id_wynagrodzenia, String data, int kwota_brutto, int kwota_netto, int id_pracownika) {

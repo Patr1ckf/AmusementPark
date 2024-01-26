@@ -23,8 +23,8 @@ public class WynagrodzeniaDAO {
 
     public List<Wynagrodzenia> list(){
         String sql = "SELECT * FROM WYNAGRODZENIA";
-
         List<Wynagrodzenia> wynagrodzeniaList = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Wynagrodzenia.class));
+
         return wynagrodzeniaList;
     }
     // Insert – wstawianie nowego wiersza do bazy
@@ -42,14 +42,14 @@ public class WynagrodzeniaDAO {
         Object[] args = {id};
         Wynagrodzenia wynagrodzenia = jdbcTemplate.queryForObject(sql, args,
                 BeanPropertyRowMapper.newInstance(Wynagrodzenia.class));
+
         return wynagrodzenia;
     }
 
     public Wynagrodzenia get1(int id) {
         Object[] args = {id};
         String sql = "SELECT * FROM WYNAGRODZENIA WHERE ID_WYNAGRODZENIA = " +args[0];
-        Wynagrodzenia wynagrodzenia = jdbcTemplate.queryForObject(sql, args,
-                BeanPropertyRowMapper.newInstance(Wynagrodzenia.class));
+        Wynagrodzenia wynagrodzenia = jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(Wynagrodzenia.class));
         return wynagrodzenia;
     }
 
@@ -58,7 +58,6 @@ public class WynagrodzeniaDAO {
         String sql = "UPDATE WYNAGRODZENIA SET DATA=:data, KWOTA_BRUTTO=:kwota_brutto, KWOTA_NETTO=:kwota_netto, ID_PRACOWNIKA=:id_pracownika WHERE ID_WYNAGRODZENIA=:id_wynagrodzenia";
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(wynagrodzenia);
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
-
         template.update(sql, param);
     }
 

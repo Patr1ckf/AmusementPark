@@ -31,7 +31,6 @@ public class PracownicyDAO {
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
         insertActor.withTableName("pracownicy").usingColumns("id_pracownika", "imie", "nazwisko","plec",
                 "data_urodzenia", "PESEL", "email","numer_konta", "id_parku");
-
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(pracownicy);
         insertActor.execute(param);
     }
@@ -40,16 +39,14 @@ public class PracownicyDAO {
     public Pracownicy get(int id) {
         String sql = "SELECT * FROM PRACOWNICY WHERE ID_PRACOWNIKA = ?";
         Object[] args = {id};
-        Pracownicy pracownicy = jdbcTemplate.queryForObject(sql, args,
-                BeanPropertyRowMapper.newInstance(Pracownicy.class));
+        Pracownicy pracownicy = jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(Pracownicy.class));
         return pracownicy;
     }
 
     public Pracownicy get1(int id) {
         Object[] args = {id};
         String sql = "SELECT * FROM PRACOWNICY WHERE ID_PRACOWNIKA = " +args[0];
-        Pracownicy pracownicy = jdbcTemplate.queryForObject(sql, args,
-                BeanPropertyRowMapper.newInstance(Pracownicy.class));
+        Pracownicy pracownicy = jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(Pracownicy.class));
         return pracownicy;
     }
 
@@ -60,7 +57,6 @@ public class PracownicyDAO {
                 " WHERE ID_PRACOWNIKA=:id_pracownika";
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(pracownicy);
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
-
         template.update(sql, param);
     }
 
@@ -71,5 +67,4 @@ public class PracownicyDAO {
         jdbcTemplate.update(sql2,id);
         jdbcTemplate.update(sql,id);
     }
-
 }

@@ -26,8 +26,7 @@ public class MainController {
     private AtrakcjeDAO dao2;
 
     @RequestMapping("/main")
-    public String defaultAfterLogin
-            (HttpServletRequest request) {
+    public String defaultAfterLogin (HttpServletRequest request) {
         if (request.isUserInRole("ADMIN")) {
             return "redirect:/main_admin";
         }

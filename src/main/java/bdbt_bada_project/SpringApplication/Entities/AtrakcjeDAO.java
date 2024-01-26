@@ -22,17 +22,15 @@ public class AtrakcjeDAO {
 
     public List<Atrakcje> list(){
         String sql = "SELECT * FROM ATRAKCJE";
-
         List<Atrakcje> atrakcjeList = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Atrakcje.class));
+
         return atrakcjeList;
     }
     // Insert – wstawianie nowego wiersza do bazy
     public void save(Atrakcje atrakcje) {
         SimpleJdbcInsert insertActor = new SimpleJdbcInsert(jdbcTemplate);
         insertActor.withTableName("atrakcje").
-                usingColumns("NAZWA","PRODUCENT",
-                "LICZBA_MIEJSC", "OPIS", "ID_PARKU");
-
+                usingColumns("NAZWA","PRODUCENT", "LICZBA_MIEJSC", "OPIS", "ID_PARKU");
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(atrakcje);
         insertActor.execute(param);
     }
@@ -41,16 +39,16 @@ public class AtrakcjeDAO {
     public Atrakcje get(int id) {
         String sql = "SELECT * FROM ATRAKCJE WHERE ID_ATRAKCJI = ?";
         Object[] args = {id};
-        Atrakcje atrakcje = jdbcTemplate.queryForObject(sql, args,
-                BeanPropertyRowMapper.newInstance(Atrakcje.class));
+        Atrakcje atrakcje = jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(Atrakcje.class));
+
         return atrakcje;
     }
 
     public Atrakcje get1(int id) {
         Object[] args = {id};
         String sql = "SELECT * FROM ATRAKCJE WHERE ID_ATRAKCJI = " +args[0];
-        Atrakcje atrakcje = jdbcTemplate.queryForObject(sql, args,
-                BeanPropertyRowMapper.newInstance(Atrakcje.class));
+        Atrakcje atrakcje = jdbcTemplate.queryForObject(sql, args, BeanPropertyRowMapper.newInstance(Atrakcje.class));
+
         return atrakcje;
     }
 
@@ -60,7 +58,6 @@ public class AtrakcjeDAO {
                 " WHERE ID_ATRAKCJI=:id_atrakcji";
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(atrakcje);
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
-
         template.update(sql, param);
     }
 

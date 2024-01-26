@@ -12,7 +12,6 @@ public class Pracownicy {
     private int id_parku = 16;
 
     public Pracownicy(){
-
     }
 
     public Pracownicy(int id, String name, String nazwisko, char gender, String dateOfBirth, String PESEL, String email, String bankAccount, int id_parku) {
