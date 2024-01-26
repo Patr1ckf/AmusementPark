@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
     <link rel="icon" href="/icon/crystal-ball.ico" type="image/x-icon">
 
-
 </head>
 <body>
 
@@ -34,15 +33,16 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">Zalogowany jako [[${#httpServletRequest.remoteUser}]]</a>
+                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">Zalogowany jako
+                        [[${#httpServletRequest.remoteUser}]]</a>
                 </li>
 
                 <li class="nav-item">
                     <form th:action="@{/logout}" method="post" id="logoutForm">
-                        <a class="nav-link" href="javascript:{}" onclick="document.getElementById('logoutForm').submit();">Wyloguj</a>
+                        <a class="nav-link" href="javascript:{}"
+                           onclick="document.getElementById('logoutForm').submit();">Wyloguj</a>
                     </form>
                 </li>
-
             </ul>
         </div>
     </div>
@@ -87,8 +87,6 @@
 
 
 </div>
-
-
 
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
