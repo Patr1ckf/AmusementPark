@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Edycja</title>
+    <meta charset="UTF-8">
+    <title>Edycja</title>
 
   <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
   <link rel="stylesheet" type="text/css" th:href="@{/css/admin/editFormPracownicy.css}"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
   <link rel="icon" href="/icon/crystal-ball.ico" type="image/x-icon">
+
 
 
 </head>
@@ -49,40 +50,57 @@
   </div>
 </nav>
 
+
+
 <div align="center">
 
-  <h1>Edytuj wynagrodzenie</h1>
+  <h1>Edit employee</h1>
   <br/>
-  <form action="#" th:action="@{/updateW}" th:object="${wynagrodzenia}" method="post">
+  <form action="#" th:action="@{/update}" th:object="${employees}" method="post">
     <table border = "1" cellpadding="10">
 
       <tr>
         <td>ID</td>
-        <td><input type="text" th:field="*{id_wynagrodzenia}" readonly></td>
+        <td><input type="text" th:field="*{id_employee}" readonly></td>
       </tr>
 
       <tr>
-        <td>Data</td>
-        <td><input type="text" th:field="*{data}" th:attr="placeholder='yyyy-MM-dd'"></td>
+        <td>Name</td>
+        <td><input type="text" th:field="*{name}"></td>
       </tr>
 
       <tr>
-        <td>Kwota brutto</td>
-        <td><input type="text" th:field="*{kwota_brutto}"></td>
+        <td>Surname</td>
+        <td><input type="text" th:field="*{surname}"></td>
       </tr>
 
       <tr>
-        <td>Kwota netto</td>
-        <td><input type="text" th:field="*{kwota_netto}"></td>
+        <td>Gender</td>
+        <td><input type="text" th:field="*{gender}"></td>
       </tr>
 
       <tr>
-        <td>ID</td>
-        <td><input type="text" th:field="*{id_pracownika}"></td>
+        <td>Date of birth</td>
+        <td><input type="text" th:field="*{birth_date}" th:attr="placeholder='yyyy-MM-dd'"></td>
       </tr>
 
       <tr>
-        <td colspan="2"><button type="submit">Zapisz</button></td>
+        <td>Personal ID</td>
+        <td><input type="text" th:field="*{personal_id}"></td>
+      </tr>
+
+      <tr>
+        <td>E-mail</td>
+        <td><input type="text" th:field="*{email}"></td>
+      </tr>
+
+      <tr>
+        <td>Bank account</td>
+        <td><input type="text" th:field="*{bank_account}"></td>
+      </tr>
+
+      <tr>
+        <td colspan="2"><button type="submit">Save</button></td>
       </tr>
 
 

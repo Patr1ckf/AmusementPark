@@ -1,8 +1,8 @@
 package bdbt_bada_project.SpringApplication.Controllers;
-import bdbt_bada_project.SpringApplication.Entities.Atrakcje;
-import bdbt_bada_project.SpringApplication.Entities.AtrakcjeDAO;
-import bdbt_bada_project.SpringApplication.Entities.Pracownicy;
-import bdbt_bada_project.SpringApplication.Entities.PracownicyDAO;
+import bdbt_bada_project.SpringApplication.Entities.Attractions;
+import bdbt_bada_project.SpringApplication.Entities.AttractionsDAO;
+import bdbt_bada_project.SpringApplication.Entities.Employees;
+import bdbt_bada_project.SpringApplication.Entities.EmployeesDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,10 +20,10 @@ import java.util.List;
 public class MainController {
 
     @Autowired
-    private PracownicyDAO dao;
+    private EmployeesDAO dao;
 
     @Autowired
-    private AtrakcjeDAO dao2;
+    private AttractionsDAO dao2;
 
     @RequestMapping("/main")
     public String defaultAfterLogin (HttpServletRequest request) {
@@ -40,8 +40,8 @@ public class MainController {
 
     @RequestMapping("/main_admin")
     public String showUserData(Model model, HttpServletRequest request) {
-        List<Pracownicy> pracownicyList = dao.list();
-        model.addAttribute("pracownicyList", pracownicyList);
+        List<Employees> employeesList = dao.list();
+        model.addAttribute("employeesList", employeesList);
 
         if (request.isUserInRole("ADMIN")) {
             return "admin/main_admin";
@@ -52,8 +52,8 @@ public class MainController {
 
     @RequestMapping("/main_user")
     public String showUserUData(Model model, HttpServletRequest request) {
-        List<Atrakcje> atrakcjeList = dao2.list();
-        model.addAttribute("atrakcjeList", atrakcjeList);
+        List<Attractions> attractionsList = dao2.list();
+        model.addAttribute("atrakcjeList", attractionsList);
 
         if (request.isUserInRole("USER")) {
             return "user/main_user";

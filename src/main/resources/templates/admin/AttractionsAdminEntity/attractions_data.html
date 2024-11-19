@@ -48,7 +48,7 @@
 </nav>
 
 <div align="center">
-  <h1>Atrakcje</h1>
+  <h1>Attractions</h1>
 
   <br/><br/>
 
@@ -57,33 +57,31 @@
     <thead>
     <tr>
       <th>ID</th>
-      <th>Nazwa</th>
-      <th>Producent</th>
-      <th>Liczba miejsc</th>
-      <th>Opis</th>
-      <th>ID parku</th>
+      <th>Name</th>
+      <th>Duration</th>
+      <th>Minimum age</th>
+      <th>Description</th>
       <th></th>
 
     </tr>
     </thead>
     <tbody>
-    <tr th:each="atrakcje : ${atrakcjeList}">
-      <td th:text="${atrakcje.id_atrakcji}">ID</td>
-      <td th:text="${atrakcje.nazwa}">Nazwa</td>
-      <td th:text="${atrakcje.producent}">Producent</td>
-      <td th:text="${atrakcje.liczba_miejsc}">Liczba miejsc</td>
-      <td th:text="${atrakcje.opis}">Opis</td>
-      <td th:text="${atrakcje.id_parku}">ID parku</td>
+    <tr th:each="attractions : ${attractionsList}">
+      <td th:text="${attractions.id_attraction}">ID</td>
+      <td th:text="${attractions.name}">Name</td>
+      <td th:text="${attractions.duration}">Duration</td>
+      <td th:text="${attractions.min_age}">Minimum age</td>
+      <td th:text="${attractions.description}">Description</td>
       <td class="hta">
-        <a th:href="@{'/editA/' + ${atrakcje.id_atrakcji}}" class="add-button2">Edytuj</a>
+        <a th:href="@{'/editA/' + ${attractions.id_attraction}}" class="add-button2">Edit</a>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <a th:href="@{'/deleteA/' + ${atrakcje.id_atrakcji}}"class="add-button2" >Usuń</a>
+        <a th:href="@{'/deleteA/' + ${attractions.id_attraction}}"class="add-button2" >Delete</a>
       </td>
     </tr>
     </tbody>
   </table>
 
-  <a th:href="@{/newA}" class="add-button">Dodaj atrakcję</a>
+  <a th:href="@{/newA}" class="add-button">Add new attraction</a>
 
 </div>
 

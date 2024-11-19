@@ -27,27 +27,29 @@
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/index}">Strona główna</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/main}">Panel</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">Zalogowany jako [[${#httpServletRequest.remoteUser}]]</a>
+                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">Zalogowany jako
+                        [[${#httpServletRequest.remoteUser}]]</a>
                 </li>
 
                 <li class="nav-item">
                     <form th:action="@{/logout}" method="post" id="logoutForm">
-                        <a class="nav-link" href="javascript:{}" onclick="document.getElementById('logoutForm').submit();">Wyloguj</a>
+                        <a class="nav-link" href="javascript:{}"
+                           onclick="document.getElementById('logoutForm').submit();">Wyloguj</a>
                     </form>
                 </li>
-
             </ul>
         </div>
     </div>
 </nav>
 
 <div align="center">
-    <h1>Pracownicy</h1>
+    <h1>Salaries</h1>
 
     <br/><br/>
 
@@ -56,42 +58,35 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Imię</th>
-            <th>Nazwisko</th>
-            <th>Płeć</th>
-            <th>Data urodzenia</th>
-            <th>PESEL</th>
-            <th>E-mail</th>
-            <th>Numer konta</th>
+            <th>Date</th>
+            <th>Gross salary</th>
+            <th>Net salary</th>
+            <th>Employee's ID</th>
             <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="pracownicy : ${pracownicyList}">
-            <td th:text="${pracownicy.id_pracownika}">ID</td>
-            <td th:text="${pracownicy.imie}">Imię</td>
-            <td th:text="${pracownicy.nazwisko}">Nazwisko</td>
-            <td th:text="${pracownicy.plec}">Płeć</td>
-            <td th:text="${pracownicy.data_urodzenia}">Data urodzenia</td>
-            <td th:text="${pracownicy.PESEL}">PESEL</td>
-            <td th:text="${pracownicy.email}">E-mail</td>
-            <td th:text="${pracownicy.numer_konta}">Numer konta</td>
+        <tr th:each="salaries : ${salariesList}">
+            <td th:text="${salaries.id_salary}">ID</td>
+            <td th:text="${salaries.date}">Date</td>
+            <td th:text="${salaries.gross_salary}">Gross salary</td>
+            <td th:text="${salaries.net_salary}">Net salary</td>
+            <td th:text="${salaries.id_employee}">Employee's ID</td>
+
             <td>
-<!--                <a th:href="@{'/edit/' + ${pracownicy.id_pracownika}}">Edit</a>-->
-                <a th:href="@{'/edit/' + ${pracownicy.id_pracownika}}" class="add-button2">Edytuj</a>
+                <a th:href="@{'/editW/' + ${salaries.id_salary}}" class="add-button2">Edit</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-<!--                <a th:href="@{'/delete/' + ${pracownicy.id_pracownika}}">Delete</a>-->
-                <a th:href="@{'/delete/' + ${pracownicy.id_pracownika}}" class="add-button2">Usuń</a>
+                <a th:href="@{'/deleteW/' + ${salaries.id_salary}}" class="add-button2">Delete</a>
 
             </td>
         </tr>
         </tbody>
     </table>
 
-    <a th:href="@{/new}" class="add-button">Dodaj pracownika</a>
+    <a th:href="@{/newW}" class="add-button">Add new salary</a>
+
 
 </div>
-
 
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>

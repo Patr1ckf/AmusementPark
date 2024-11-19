@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head >
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/admin/editFormPracownicy.css}"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
     <link rel="icon" href="/icon/crystal-ball.ico" type="image/x-icon">
 
-
     <meta charset="UTF-8">
-    <title>Edycja</title>
+    <title>Dodaj</title>
+
 </head>
 <body>
-
 
 
 <!-- Navigation -->
@@ -51,51 +51,44 @@
 
 
 <div align="center">
+    <h1>Add new attraction</h1>
 
-    <h1>Edytuj atrakcję</h1>
     <br/>
-    <form action="#" th:action="@{/updateA}" th:object="${atrakcje}" method="post">
-        <table border = "1" cellpadding="10">
+
+    <form action="#" th:action="@{/saveA}" th:object="${attractions}" method="post">
+        <table border = "1" cellpadding = "10">
+<!--            <tr>-->
+<!--                <td>ID</td>-->
+<!--                <td><input type="text" th:field="*{id_atrakcji}"></td>-->
+<!--            </tr>-->
 
             <tr>
-                <td>ID</td>
-                <td><input type="text" th:field="*{id_atrakcji}" readonly></td>
+                <td>Name</td>
+                <td><input type="text" th:field="*{name}"></td>
             </tr>
 
             <tr>
-                <td>Nazwa</td>
-                <td><input type="text" th:field="*{nazwa}"></td>
+                <td>Duration</td>
+                <td><input type="text" th:field="*{duration}"></td>
             </tr>
 
             <tr>
-                <td>Producent</td>
-                <td><input type="text" th:field="*{producent}"></td>
+                <td>Minimum age</td>
+                <td><input type="text" th:field="*{min_age}"></td>
             </tr>
 
             <tr>
-                <td>Liczba miejsc</td>
-                <td><input type="text" th:field="*{liczba_miejsc}"></td>
+                <td>Description</td>
+                <td><input type="text" th:field="*{description}"></td>
             </tr>
 
             <tr>
-                <td>Opis</td>
-                <td><input type="text" th:field="*{opis}"></td>
+                <td colspan="2"><button type="submit">Save</button></td>
             </tr>
-
-            <tr>
-                <td colspan="2"><button type="submit">Zapisz</button></td>
-            </tr>
-
 
         </table>
 
-
-
     </form>
-
-
 </div>
-
-
 </body>
 </html>

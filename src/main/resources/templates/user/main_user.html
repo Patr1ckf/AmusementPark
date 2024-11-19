@@ -59,11 +59,11 @@
     <div class="container2">
     <div class="row">
         <!-- Dynamicznie generowane kafelki atrakcji -->
-        <div th:each="atrakcje : ${atrakcjeList}">
+        <div th:each="attractions : ${attractionsList}">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title" th:text="${atrakcje.nazwa}"></h5>
-                    <p class="card-text" th:text="${atrakcje.opis}"></p>
+                    <h5 class="card-title" th:text="${attractions.nazwa}"></h5>
+                    <p class="card-text" th:text="${attractions.opis}"></p>
                 </div>
             </div>
         </div>

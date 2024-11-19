@@ -27,29 +27,27 @@
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/index}">Strona główna</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/main}">Panel</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">Zalogowany jako
-                        [[${#httpServletRequest.remoteUser}]]</a>
+                    <a class="nav-link" th:inline="text" style="color:lightskyblue;">Zalogowany jako [[${#httpServletRequest.remoteUser}]]</a>
                 </li>
 
                 <li class="nav-item">
                     <form th:action="@{/logout}" method="post" id="logoutForm">
-                        <a class="nav-link" href="javascript:{}"
-                           onclick="document.getElementById('logoutForm').submit();">Wyloguj</a>
+                        <a class="nav-link" href="javascript:{}" onclick="document.getElementById('logoutForm').submit();">Wyloguj</a>
                     </form>
                 </li>
+
             </ul>
         </div>
     </div>
 </nav>
 
 <div align="center">
-    <h1>Wynagrodzenia</h1>
+    <h1>Employees</h1>
 
     <br/><br/>
 
@@ -58,35 +56,42 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Data</th>
-            <th>Kwota brutto</th>
-            <th>Kwota netto</th>
-            <th>ID pracownika</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Gender</th>
+            <th>Date of birth</th>
+            <th>Personal ID</th>
+            <th>E-mail</th>
+            <th>Bank account</th>
             <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="wynagrodzenia : ${wynagrodzeniaList}">
-            <td th:text="${wynagrodzenia.id_wynagrodzenia}">ID</td>
-            <td th:text="${wynagrodzenia.data}">data</td>
-            <td th:text="${wynagrodzenia.kwota_brutto}">Kwota brutto</td>
-            <td th:text="${wynagrodzenia.kwota_netto}">Kwota netto</td>
-            <td th:text="${wynagrodzenia.id_pracownika}">ID pracownika</td>
-
+        <tr th:each="employees : ${employeesList}">
+            <td th:text="${employees.id_employee}">ID</td>
+            <td th:text="${employees.name}">Name</td>
+            <td th:text="${employees.surname}">Surname</td>
+            <td th:text="${employees.gender}">Gender</td>
+            <td th:text="${employees.birth_date}">Date of birth</td>
+            <td th:text="${employees.personal_id}">Personal ID</td>
+            <td th:text="${employees.email}">E-mail</td>
+            <td th:text="${employees.bank_account}">Bank account</td>
             <td>
-                <a th:href="@{'/editW/' + ${wynagrodzenia.id_wynagrodzenia}}" class="add-button2">Edytuj</a>
+<!--                <a th:href="@{'/edit/' + ${employees.id_pracownika}}">Edit</a>-->
+                <a th:href="@{'/edit/' + ${employees.id_employee}}" class="add-button2">Edit</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/deleteW/' + ${wynagrodzenia.id_wynagrodzenia}}" class="add-button2">Usuń</a>
+<!--                <a th:href="@{'/delete/' + ${employees.id_pracownika}}">Delete</a>-->
+                <a th:href="@{'/delete/' + ${employees.id_employee}}" class="add-button2">Delete</a>
 
             </td>
         </tr>
         </tbody>
     </table>
 
-    <a th:href="@{/newW}" class="add-button">Dodaj wynagrodzenie</a>
-
+    <a th:href="@{/new}" class="add-button">Add new employee</a>
 
 </div>
+
 
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
