@@ -24,37 +24,6 @@ public class Application {
 //		dataSource.setDriverClassName("org.postgresql.Driver");
 //		return dataSource;
 //	}
-@Bean
-public DataSource dataSource() {
-	DriverManagerDataSource dataSource = new DriverManagerDataSource();
-	dataSource.setUrl("${SUPABASE_DB_URL}");
-	dataSource.setUsername("${SUPABASE_DB_USERNAME}");
-	dataSource.setPassword("${SUPABASE_DB_PASSWORD}");
-	dataSource.setDriverClassName("org.postgresql.Driver");
-	return dataSource;
-}
-
-//	@Bean
-//	public DataSource dataSource() {
-//		String databaseUrl = System.getenv("SUPABASE_DB_URL");
-//		// Upewnij się, że masz ustawioną zmienną środowiskową na Heroku
-//
-//		// Sprawdzamy, czy URL zaczyna się od 'postgres://', jeśli tak, zamieniamy to na 'jdbc:postgresql://'
-//		if (databaseUrl != null && databaseUrl.startsWith("postgres://")) {
-//			databaseUrl = databaseUrl.replace("postgres://", "jdbc:postgresql://");
-//		}
-//
-//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//		dataSource.setUrl(databaseUrl);  // Ustawiamy URL bazy danych
-//		dataSource.setDriverClassName("org.postgresql.Driver");  // Ustawiamy sterownik PostgreSQL
-//
-//		return dataSource;
-//	}
-
-
-
-
-
 
 	@Bean
 	public JdbcTemplate jdbcTemplate(DataSource dataSource) {
