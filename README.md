@@ -56,9 +56,9 @@ git clone https://github.com/Patr1ckf/AmusementPark.git
 Explore visual snapshots of Amusement Park Web App to get a glimpse of its user interface and key features. These screenshots showcase various sections, including the homepage, admin dashboard, employee management, attractions, and more. Take a visual tour to see the app in action!
 
 
-![Main page](screenshots/img.png)
-![Main page](screenshots/img_1.png)
-![Main page](screenshots/img_2.png)
-![Main page](screenshots/img_3.png)
-![Main page](screenshots/img_4.png)
-![Main page](screenshots/img_5.png)
+![Main page](OtherFiles/screenshots/img.png)
+![Main page](OtherFiles/screenshots/img_1.png)
+![Main page](OtherFiles/screenshots/img_2.png)
+![Main page](OtherFiles/screenshots/img_3.png)
+![Main page](OtherFiles/screenshots/img_4.png)
+![Main page](OtherFiles/screenshots/img_5.png)

@@ -7,8 +7,9 @@
 
 .navbar{
     background-image: linear-gradient(135deg, #0A5F60 0%, #371870 100%);
-    font-family: 'Pacifico', cursive;
-
+    font-family: "Josefin Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
 }
 
 .overlay {
@@ -58,8 +59,8 @@
 }
 
 .container .button2 {
-    width: 120px;
-    height: 45px;
+    width: 250px;
+    height: 50px;
     border-radius: 50px;
     background-image: linear-gradient(135deg, #ab66d3 0%, #552096 100%);
     box-shadow: 0 20px 30px -6px rgba(171, 88, 219, 0.5);
@@ -69,10 +70,14 @@
     font-size: 24px;
     color: white;
     margin-top: 30px;
+    font-family: "Josefin Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    transition-duration: 300ms;
 }
 
 .container .button:hover {
-    transform: translateY(10px);
+    transform: translateY(4px);
     box-shadow: none;
 }
 
@@ -84,12 +89,15 @@
     color:white;
 }
 
-/* Dodaj styl dla białych etykiet */
 .overlay form label.white-text {
-    color: white !important;
+    font-family: "Josefin Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
 }
 .white-text {
     color: white;
-    font-family: 'Pacifico', cursive;
+    font-family: "Josefin Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
 
 }
