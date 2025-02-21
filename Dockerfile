@@ -1,6 +1,9 @@
 # Użyj oficjalnego obrazu Javy
 FROM openjdk:17-jdk-slim
 
+# Zainstaluj Maven
+RUN apt-get update && apt-get install -y maven
+
 # Ustaw katalog roboczy
 WORKDIR /app
 
