@@ -28,11 +28,16 @@ public class Application {
 	@Bean
 	public DataSource dataSource() {
 		String databaseUrl = System.getenv("DATABASE_URL");
+
 		if (databaseUrl != null && databaseUrl.startsWith("postgres://")) {
 			databaseUrl = databaseUrl.replace("postgres://", "jdbc:postgresql://");
 		}
-		return new DriverManagerDataSource(databaseUrl);
+
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setUrl(databaseUrl);
+		return dataSource;
 	}
+
 
 
 	@Bean
