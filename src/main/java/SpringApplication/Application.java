@@ -30,13 +30,20 @@ public class Application {
 		String databaseUrl = System.getenv("DATABASE_URL");
 
 		if (databaseUrl != null && databaseUrl.startsWith("postgres://")) {
+			// Zamiana "postgres://" na "jdbc:postgresql://"
 			databaseUrl = databaseUrl.replace("postgres://", "jdbc:postgresql://");
 		}
 
+		// Inicjalizacja DataSource
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setUrl(databaseUrl);
+		dataSource.setUrl(databaseUrl);  // Ustawienie URL
+		dataSource.setUsername("postgres");  // Ustawienie użytkownika (możesz pobrać z URL)
+		dataSource.setPassword("dRWMSfNPgGDv3lxk");  // Ustawienie hasła (możesz pobrać z URL)
+		dataSource.setDriverClassName("org.postgresql.Driver");  // Ustawienie klasy sterownika
+
 		return dataSource;
 	}
+
 
 
 
