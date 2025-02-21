@@ -6,7 +6,7 @@ services:
     startCommand: java -jar target/SEBDM_pro-0.0.1-SNAPSHOT.jar
     envVars:
       - key: SUPABASE_URL
-        value: jdbc:postgresql://aws-0-us-east-1.pooler.supabase.com:5432/postgres
+        value: jdbc:postgresql://db.wxeseejwtrlkyitubugy.supabase.co:5432/postgres
       - key: SUPABASE_DB_USERNAME
         value: postgres.wxeseejwtrlkyitubugy
       - key: SUPABASE_DB_PASSWORD

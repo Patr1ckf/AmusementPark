@@ -18,7 +18,7 @@ public class Application {
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setUrl("jdbc:postgresql://aws-0-us-east-1.pooler.supabase.com:5432/postgres");
+		dataSource.setUrl("jdbc:postgresql://db.wxeseejwtrlkyitubugy.supabase.co:5432/postgres");
 		dataSource.setUsername("postgres.wxeseejwtrlkyitubugy");
 		dataSource.setPassword("dRWMSfNPgGDv3lxk");
 		dataSource.setDriverClassName("org.postgresql.Driver");
