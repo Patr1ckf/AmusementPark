@@ -27,22 +27,22 @@ public class Application {
 
 	@Bean
 	public DataSource dataSource() {
+		// Pobieramy DATABASE_URL z Heroku
 		String databaseUrl = System.getenv("DATABASE_URL");
 
+		// Sprawdzamy, czy URL zaczyna się od 'postgres://', jeśli tak, zamieniamy to na 'jdbc:postgresql://'
 		if (databaseUrl != null && databaseUrl.startsWith("postgres://")) {
-			// Zamiana "postgres://" na "jdbc:postgresql://"
 			databaseUrl = databaseUrl.replace("postgres://", "jdbc:postgresql://");
 		}
 
-		// Inicjalizacja DataSource
+		// Konfigurujemy DataSource z tym URL
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setUrl(databaseUrl);  // Ustawienie URL
-		dataSource.setUsername("postgres");  // Ustawienie użytkownika (możesz pobrać z URL)
-		dataSource.setPassword("dRWMSfNPgGDv3lxk");  // Ustawienie hasła (możesz pobrać z URL)
-		dataSource.setDriverClassName("org.postgresql.Driver");  // Ustawienie klasy sterownika
+		dataSource.setUrl(databaseUrl);  // Ustawiamy URL bazy danych
+		dataSource.setDriverClassName("org.postgresql.Driver");  // Ustawiamy sterownik PostgreSQL
 
 		return dataSource;
 	}
+
 
 
 
