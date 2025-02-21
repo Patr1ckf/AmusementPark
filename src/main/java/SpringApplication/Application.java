@@ -15,15 +15,24 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-	@Bean
-	public DataSource dataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setUrl("jdbc:postgresql://aws-0-us-east-1.pooler.supabase.com:5432/postgres");
-		dataSource.setUsername("postgres.wxeseejwtrlkyitubugy");
-		dataSource.setPassword("dRWMSfNPgGDv3lxk");
-		dataSource.setDriverClassName("org.postgresql.Driver");
-		return dataSource;
-	}
+//	@Bean
+//	public DataSource dataSource() {
+//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//		dataSource.setUrl("jdbc:postgresql://aws-0-us-east-1.pooler.supabase.com:5432/postgres");
+//		dataSource.setUsername("postgres.wxeseejwtrlkyitubugy");
+//		dataSource.setPassword("dRWMSfNPgGDv3lxk");
+//		dataSource.setDriverClassName("org.postgresql.Driver");
+//		return dataSource;
+//	}
+@Bean
+public DataSource dataSource() {
+	DriverManagerDataSource dataSource = new DriverManagerDataSource();
+	dataSource.setUrl("${SUPABASE_DB_URL}");
+	dataSource.setUsername("${SUPABASE_DB_USERNAME}");
+	dataSource.setPassword("${SUPABASE_DB_PASSWORD}");
+	dataSource.setDriverClassName("org.postgresql.Driver");
+	return dataSource;
+}
 
 //	@Bean
 //	public DataSource dataSource() {
