@@ -27,7 +27,7 @@ public class Application {
 
 	@Bean
 	public DataSource dataSource() {
-		String databaseUrl = System.getenv("DATABASE_URL");
+		String databaseUrl = System.getenv("SUPABASE_DB_URL");
 		// Upewnij się, że masz ustawioną zmienną środowiskową na Heroku
 
 		// Sprawdzamy, czy URL zaczyna się od 'postgres://', jeśli tak, zamieniamy to na 'jdbc:postgresql://'
