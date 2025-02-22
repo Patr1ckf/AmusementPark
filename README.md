@@ -34,9 +34,9 @@ This repository contains the source code for the Amusement Park Web Application,
 
 ## Database Structure
 The application uses a Supabase-hosted PostgreSQL database with tables for:
-- Pracownicy (Employees)
-- Wynagrodzenia (Salaries)
-- Atrakcje (Attractions)
+- Employees
+- Salaries
+- Attractions
   
 Refer to the DAO (Data Access Object) classes for detailed database interactions.
 
