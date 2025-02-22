@@ -8,7 +8,7 @@ This repository contains the source code for the Amusement Park Web Application,
   - Filter attractions based on age and available time, highlighting the best-suited route
 
 - **User Dashboard:**
-  - Access general amusement park information.
+  - Access general amusement park information
   - Option to log in as an admin
 
 ### Admin Management:
@@ -46,13 +46,13 @@ Refer to the DAO (Data Access Object) classes for detailed database interactions
 ```bash
 git clone https://github.com/Patr1ckf/AmusementPark.git
 ```
-- Open the project in your preferred Java IDE.
-- Build and run the application.
+- Open the project in your preferred Java IDE
+- Build and run the application
 - Access the application in your web browser: http://localhost:8080
 
 ## Usage
 - Navigate to the various pages using the provided URLs:
-  - `/index`: Home page.
+  - `/index`: Home page
   - `/main_admin`: Admin dashboard for managing employees, salaries, and attractions
   - `/login`: Login page (authentication not yet implemented in this version)
 - Perform CRUD operations on employees, salary records, and attractions using the respective pages
