@@ -1,35 +1,44 @@
 # Amusement Park Web App
-This repository contains the source code for an Amusement Park Web Application, developed using the Spring Framework in Java. The application allows users to perform CRUD (Create, Read, Update, Delete) operations on a database related to amusement park entities such as employees, attractions, and salary information.
+This repository contains the source code for the Amusement Park Web Application, developed using the Spring Framework in Java. The application allows administrators to manage amusement park employees, attractions, and salary information, while regular users can explore the park's map and plan their visit.
 
 ## Features
-### Employee Management:
-- View a list of employees.
-- Add new employees.
-- Edit employee details.
-- Delete employees.
+### User Experience:
+- **Interactive Park Map:** Displays two routes: **Dragon Route** and **Smurfs Route**
+  - Hover over attraction points to see descriptions
+  - Filter attractions based on age and available time, highlighting the best-suited route
 
-### Salary Management:
-- View a list of salary information for employees.
-- Add new salary records.
-- Edit existing salary records.
-- Delete salary records.
+- **User Dashboard:**
+  - Access general amusement park information.
+  - Option to log in as an admin
 
-### Attraction Management:
-- View a list of attractions in the amusement park.
-- Add new attractions.
-- Edit attraction details.
-- Delete attractions.
+### Admin Management:
+- **Employee Management:**
+  - View, add, edit, and delete employees
+- **Salary Management:**
+  - View, add, edit, and delete salary records
+- **Attraction Management:**
+  - View and edit
+ 
+## Enhanced UI/UX:
+- Animated navigation bar, buttons, and interactive elements
+- Smooth animations for route highlighting and attraction details
 
 ## Technologies Used:
-- **Spring Framework:** The core framework used for building the web application.
-- **Spring MVC:** For building the Model-View-Controller architecture.
-- **Spring JDBC:** To interact with the database and perform CRUD operations.
-- **Thymeleaf:** A modern server-side Java template engine for web and standalone environments.
-- **Java Database Connectivity (JDBC):** For database connectivity and operations.
-- **HTML, CSS, JavaScript:** For front-end development.
+- **Spring Framework** – Core backend framework
+- **Spring MVC** – Implements Model-View-Controller architecture
+- **Spring JDBC** – Handles database interactions
+- **Thymeleaf** – Server-side Java template engine for dynamic web content
+- **Supabase** – Cloud-hosted PostgreSQL database for storing park data
+- **HTML, CSS, JavaScript** – Frontend development
+- **Java Database Connectivity (JDBC)** – Ensures seamless database connection
 
 ## Database Structure
-The application uses a relational database with tables for Pracownicy (Employees), Wynagrodzenia (Salaries), and Atrakcje (Attractions). Refer to the corresponding DAO (Data Access Object) classes for details on the database interactions.
+The application uses a Supabase-hosted PostgreSQL database with tables for:
+- Pracownicy (Employees)
+- Wynagrodzenia (Salaries)
+- Atrakcje (Attractions)
+  
+Refer to the DAO (Data Access Object) classes for detailed database interactions.
 
 ## Getting Started
 - To run the application locally, follow these steps:
@@ -38,27 +47,27 @@ The application uses a relational database with tables for Pracownicy (Employees
 git clone https://github.com/Patr1ckf/AmusementPark.git
 ```
 - Open the project in your preferred Java IDE.
-- Configure the database connection in the application.properties file. (ask me about detailed information about connection to a database on server)
-- add path in pom.xml to odjbc11.jar
 - Build and run the application.
 - Access the application in your web browser: http://localhost:8080
 
 ## Usage
 - Navigate to the various pages using the provided URLs:
   - `/index`: Home page.
-  - `/main_admin`: Admin dashboard for managing employees, salaries, and attractions.
-  - `/main_user`: User dashboard for general amusement park information.
-  - `/login`: Login page (authentication not yet implemented in this version).
-- Perform CRUD operations on employees, salary records, and attractions using the respective pages.
+  - `/main_admin`: Admin dashboard for managing employees, salaries, and attractions
+  - `/login`: Login page (authentication not yet implemented in this version)
+- Perform CRUD operations on employees, salary records, and attractions using the respective pages
+- In order to access the admin side and manage data press `Employees portal`
 
 ## Screenshots
+Take a look at the Amusement Park Web App's UI and key features!
 
-Explore visual snapshots of Amusement Park Web App to get a glimpse of its user interface and key features. These screenshots showcase various sections, including the homepage, admin dashboard, employee management, attractions, and more. Take a visual tour to see the app in action!
 
+![Main page](screenshots/img.png)
+![Main page attraction details](screenshots/img_1.png)
+![Recommended path](screenshots/img_2.png)
+![Login page](screenshots/img_3.png)
+![Admin portal](screenshots/img_4.png)
+![List of employees](screenshots/img_5.png)
+![Salary adding](screenshots/img_6.png)
+![Choosing a date - calendar](screenshots/img_7.png)
 
-![Main page](OtherFiles/screenshots/img.png)
-![Main page](OtherFiles/screenshots/img_1.png)
-![Main page](OtherFiles/screenshots/img_2.png)
-![Main page](OtherFiles/screenshots/img_3.png)
-![Main page](OtherFiles/screenshots/img_4.png)
-![Main page](OtherFiles/screenshots/img_5.png)
